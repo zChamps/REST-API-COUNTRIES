@@ -1,0 +1,55 @@
+.containerHomeCountries{
+    background-color: hsl(207, 26%, 17%);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 100px;
+    gap: 75px;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerSearcAndFilter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    background-color: hsl(207, 26%, 17%);
+    color: white;
+    padding-top: 50px;
+    
+}
+
+.containerSearcAndFilter form input{
+    background-color: hsl(209, 23%, 22%);
+    border: 0;
+    border-radius: 7px;
+    padding-left: 60px;
+    height: 45px;
+    width: 450px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.containerSearcAndFilter form input::placeholder{
+    color: white;
+}
+
+.subcontainerFilter{
+    background-color: hsl(209, 23%, 22%);
+    height: 45px;
+    width: 220px;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.subcontainerFilter ul{
+    display: none;
+}
+
+.subcontainerFilter ul li{
+    list-style-type: none;
+}

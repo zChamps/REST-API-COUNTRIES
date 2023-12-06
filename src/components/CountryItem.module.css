@@ -1,0 +1,32 @@
+.containerGeral{
+    width: 250px;
+    height: 340px;
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+      
+}
+
+.containerGeral img{
+    width: 250px;
+    height: 140px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.subContainer{
+    padding: 25px 0 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.subContainer h4{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.subContainer span{
+    font-weight: 600;
+}

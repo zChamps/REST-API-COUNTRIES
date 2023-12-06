@@ -1,0 +1,15 @@
+.container_nav{
+    background-color: hsl(209, 23%, 22%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 100px;
+    /* box-sizing: border-box; */
+    color: white;
+    font-weight: 600;
+}
+
+.container_nav h1{
+    font-size: 25px;
+    font-weight: 600;
+}
