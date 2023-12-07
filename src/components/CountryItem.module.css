@@ -29,4 +29,5 @@
 
 .subContainer span{
     font-weight: 600;
+    user-select: none;
 }
