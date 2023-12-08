@@ -19,7 +19,7 @@ export const ContriesContextProvider = ({ children }) => {
 
     fetchData();
   }, []);
-
+  // allCountries && console.log(allCountries)
   return (
     <ContriesContext.Provider value={{ allCountries }}>
       {children}
