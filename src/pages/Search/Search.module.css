@@ -1,0 +1,10 @@
+.containerHomeCountries{
+    background-color: hsl(207, 26%, 17%);
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 100px;
+    gap: 75px;
+    align-items: center;
+    justify-content: center;
+}

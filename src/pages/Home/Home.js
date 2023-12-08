@@ -1,16 +1,18 @@
 import styles from "./Home.module.css"
 import { useFetch } from '../../Hooks/useFetch'
 import CountryItem from '../../components/CountryItem'
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useSearchParams } from 'react-router-dom';
 import SearchForm from "../../components/SearchForm";
+import { ContriesContext } from "../../Context/CountriesContext";
 
 const Home = () => {
   const url = "https://restcountries.com/v3.1/independent?status=true"
-  const {data, loading} = useFetch(url)
+  const {loading} = useFetch(url)
+  const {allCountries} = useContext(ContriesContext)
   const [barraPesquisa, setBarraPesquisa] = useState(false)
   const [searchParams] = useSearchParams()
-  console.log(data)
+  // console.log(allCountries)
 
   const handleFilterContanier = () => {
     setBarraPesquisa(!barraPesquisa)
@@ -33,7 +35,7 @@ const Home = () => {
     </div>
     <div className={styles.containerHomeCountries}>
       {loading && <p>Carregando dados!!</p>}
-      {data && data.map(country => {
+      {allCountries && allCountries.map(country => {
         return <CountryItem country={country}/>
       })}
     </div>
