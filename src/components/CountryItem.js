@@ -9,7 +9,6 @@ const CountryItem = ({country, index}) => {
 
   const handleRedirectDetailPage = (index) =>{
     const url = `/details/${index}`
-    console.log(url)
     navigate(url)
   }
 
@@ -17,7 +16,7 @@ const CountryItem = ({country, index}) => {
     <div onClick={() => handleRedirectDetailPage(index)} className={styles.containerGeral}>
         <img src={country.flags.png} alt={country.flags.alt} /> {/* Bandeira do país */}
         <div className={styles.subContainer}>
-            <h4>{country.translations.por.common}</h4>  {/* Nome do país */}
+            <h4>{country.name.common}</h4>  {/* Nome do país */}
             <p><span>Population:</span> {country.population}</p>
             <p><span>Region:</span> {country.region}</p>
             <p><span>Capital:</span> {country.capital[0]}</p>
