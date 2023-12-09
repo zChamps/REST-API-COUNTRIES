@@ -25,7 +25,31 @@ const CountryDetails = () => {
 
   //Paises fronteira: country.borders.map(pais => {<p>pais</p>})
 
-  countryData && console.log(countryData.name.nativeName[Object.keys(countryData.name.nativeName)].common)
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
   return (
@@ -39,26 +63,30 @@ const CountryDetails = () => {
         <div className={styles.SubcontainerGeralPais}>
           <img src={countryData.flags.png} alt={countryData.flags.alt} />
           <div className={styles.ContainerDadosPais}>
-            <p> {countryData.name.common}</p>
-            <div>
-              <div>
-                <p> Native Name: {countryData.name.nativeName[Object.keys(countryData.name.nativeName)].common}</p>
-                <p> Population {countryData.population}</p>
-                <p> Region: {countryData.region}</p>
-                <p> Sub Region: {countryData.subregion}</p>
-                <p> Capital: {countryData.capital[0]}</p></div>
-              <div>
-                <p> Top Level Domain: {countryData.tld[0]}</p>
-                <p> Currencies: {countryData.currencies[Object.keys(countryData.currencies)].name} </p>
-                <p> Languages: {Object.keys(countryData.languages).map(language => {
+            <p> <span className={styles.negrito}> {countryData.name.common}</span></p>
+            <div className={styles.dadosPais}>
+              <div className={styles.subContainerDadosPais}>
+                {/* <p> <span className={styles.negrito}> Native Name:</span> {countryData.name.nativeName[Object.keys(countryData.name.nativeName)].common}</p> */}
+                <p> <span className={styles.negrito}> Population:</span> {countryData.population.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</p>
+                <p> <span className={styles.negrito}> Region:</span> {countryData.region}</p>
+                <p> <span className={styles.negrito}> Sub Region:</span> {countryData.subregion}</p>
+                <p> <span className={styles.negrito}> Capital:</span> {countryData.capital[0]}</p></div>
+              <div className={styles.subContainerDadosPais}>
+                <p> <span className={styles.negrito}> Top Level Domain:</span> {countryData.tld[0]}</p>
+                {/* <p> <span className={styles.negrito}> Currencies:</span> {countryData.currencies[Object.keys(countryData.currencies)].name} </p> */}
+                <p> <span className={styles.negrito}>Languages:</span> {Object.keys(countryData.languages).map(language => {
                   return (countryData.languages[language])
-                })}</p>
+                })} </p>
               </div>
             </div>
 
-            <p> Border Countries:{countryData.borders.map(pais => {
-              return <p> {pais}</p>
-            })}</p>
+            <div className={styles.teste}>
+              <p className={styles.negrito}> Border Countries:</p>
+              <div className={styles.containerPaisesDivisa}><p><div className={styles.containerPaisesDivisa}>{countryData.borders.map(pais => {
+                return <span className={styles.paisDivisa}>{String(pais)}</span>
+              })}</div></p>
+              </div>
+            </div>
           </div>
 
         </div>
