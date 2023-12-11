@@ -25,8 +25,9 @@ const CountryDetails = () => {
 
   //Paises fronteira: country.borders.map(pais => {<p>pais</p>})
 
- 
-  
+
+
+  countryData && console.log(countryData)
 
 
 
@@ -44,12 +45,12 @@ const CountryDetails = () => {
 
 
 
+  // BRASIL NÃO FUNCIONA:                 <p> <span className={styles.negrito}> Currencies:</span> {countryData.currencies[Object.keys(countryData.currencies)[1]].name} </p>
 
 
 
 
 
-  
 
 
   return (
@@ -66,26 +67,36 @@ const CountryDetails = () => {
             <p> <span className={styles.negrito}> {countryData.name.common}</span></p>
             <div className={styles.dadosPais}>
               <div className={styles.subContainerDadosPais}>
-                {/* <p> <span className={styles.negrito}> Native Name:</span> {countryData.name.nativeName[Object.keys(countryData.name.nativeName)].common}</p> */}
+                <p> <span className={styles.negrito}> Native Name:</span> {countryData.name.nativeName[Object.keys(countryData.name.nativeName)[0]].common}</p>
                 <p> <span className={styles.negrito}> Population:</span> {countryData.population.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</p>
                 <p> <span className={styles.negrito}> Region:</span> {countryData.region}</p>
                 <p> <span className={styles.negrito}> Sub Region:</span> {countryData.subregion}</p>
                 <p> <span className={styles.negrito}> Capital:</span> {countryData.capital[0]}</p></div>
               <div className={styles.subContainerDadosPais}>
                 <p> <span className={styles.negrito}> Top Level Domain:</span> {countryData.tld[0]}</p>
-                {/* <p> <span className={styles.negrito}> Currencies:</span> {countryData.currencies[Object.keys(countryData.currencies)].name} </p> */}
+                <p> <span className={styles.negrito}> Currencies:</span> {countryData.currencies[Object.keys(countryData.currencies)[0]].name} </p>
                 <p> <span className={styles.negrito}>Languages:</span> {Object.keys(countryData.languages).map(language => {
-                  return (countryData.languages[language])
+                  return <span> {countryData.languages[language]}, </span>
                 })} </p>
               </div>
             </div>
 
             <div className={styles.teste}>
-              <p className={styles.negrito}> Border Countries:</p>
-              <div className={styles.containerPaisesDivisa}><p><div className={styles.containerPaisesDivisa}>{countryData.borders.map(pais => {
-                return <span className={styles.paisDivisa}>{String(pais)}</span>
-              })}</div></p>
+              <div className={styles.teste}>
+                <p className={styles.negrito}>Border Countries:</p>
+                {countryData.borders ? (
+                  <div className={styles.containerPaisesDivisa}>
+                    {countryData.borders.map(pais => (
+                      <span className={styles.paisDivisa} key={pais}>{pais}</span>
+                    ))}
+                  </div>
+                ) : (
+                  <div className={styles.containerPaisesDivisa}>
+                    <p className={styles.paisDivisa}>Without Info</p>
+                  </div>
+                )}
               </div>
+
             </div>
           </div>
 

@@ -1,8 +1,6 @@
 //2 - Criar a pagina de search
 //3 - Criar a busca dos dados
 import {useContext, useEffect, useState} from 'react'
-import { useLocation, useParams } from 'react-router-dom';
-import {useFetch} from "../../Hooks/useFetch"
 import { ContriesContext } from '../../Context/CountriesContext';
 import { useQuery } from "../../Hooks/useQuery";
 import CountryItem from '../../components/CountryItem';
@@ -11,6 +9,8 @@ import styles from "./Search.module.css"
 
 const Search = () => {
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [indexFilteredCountries, setIndexFilteredCountries] = useState([])
+  const [filteredCountriesAndIndex, setFilteredCountriesAndIndex] = useState([])
 
   
   //Obtendo o valor da query com o custom hook useQuery
@@ -26,30 +26,38 @@ const Search = () => {
 useEffect(() => {
   const filterCountries = () => {
     const filtered = allCountries.filter((country) =>
-      
-    country.translations.por.common.toLowerCase().includes(search.toLowerCase())
-  
-  );
-  console.log(filtered)
-  setFilteredCountries(filtered);
-  
+    
+    country.name.common.toLowerCase().includes(search.toLowerCase())
+    
+    );
+    const selectedItemAndIndex = filtered.map((item) => [allCountries.indexOf(item), item]);
+
+  if (filtered.length > 0) {
+    
+ 
+    setFilteredCountriesAndIndex(selectedItemAndIndex)
+  }
 };
-  filterCountries()
-  // console.log(filteredCountries)
-  }, [allCountries])
-  
-  // console.log(items)
+filterCountries()
+// console.log(filteredCountries)
+}, [allCountries])
+// console.log(filteredCountriesAndIndex)
+// console.log(indexFilteredCountries)
+
+
+
+
+
   return (
     <div className={styles.containerHomeCountries}>
-        <ul className="products">
-        {filteredCountries && filteredCountries.map(item => {
-          
-           return <CountryItem country={item}/>
+        {filteredCountriesAndIndex && filteredCountriesAndIndex.map((data) => {
+          // console.log(data)
+
+           return <CountryItem index={data[0]}  country={data[1]}/>
 
 
   
         })}
-    </ul>
     </div>
   )
 }

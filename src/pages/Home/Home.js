@@ -13,12 +13,47 @@ const Home = () => {
   const {allCountries} = useContext(ContriesContext)
   const [barraPesquisa, setBarraPesquisa] = useState(false)
   const [searchParams] = useSearchParams()
-  // console.log(allCountries)
+  
+  
+  const [classeAdicionada, setClasseAdicionada] = useState(false);
 
   const handleFilterContanier = () => {
     setBarraPesquisa(!barraPesquisa)
   }
 
+
+
+  //Paises filtrados por continente
+  const Africa = allCountries.filter(country => {
+    return country.region === "Africa"
+  })
+
+  const Oceania = allCountries.filter(country => {
+    return country.region === "Oceania"
+  })
+
+  const Europe = allCountries.filter(country => {
+    return country.region === "Europe"
+  })
+
+  const Asia = allCountries.filter(country => {
+    return country.region === "Asia"
+  })
+
+  const Americas = allCountries.filter(country => {
+    return country.region === "Americas"
+  })
+
+
+
+  const handleRegionClick = (region) => {
+    <div className={styles.containerHomeCountries}>
+    {region && region.map((country, index )=> {
+      return <CountryItem key={index} index={index} country={country}/>
+    })}</div>
+    
+    setClasseAdicionada(true)
+  }
   
 
   return (
@@ -28,15 +63,15 @@ const Home = () => {
       <div className={styles.subcontainerFilter}>
         <p onClick={handleFilterContanier}>Filter by Region</p>
         <ul  style={barraPesquisa === false ? {display: "none"} : {display: "flex"}}>
-          <li>Africa</li>
-          <li>America</li>
-          <li>Asia</li>
-          <li>Europe</li>
-          <li>Oceania</li>
+          <li onClick={() => {handleRegionClick(Africa)}}>Africa</li>
+          <li onClick={() => {handleRegionClick(Americas)}}>America</li>
+          <li onClick={() => {handleRegionClick(Asia)}}>Asia</li>
+          <li onClick={() => {handleRegionClick(Europe)}}>Europe</li>
+          <li onClick={() => {handleRegionClick(Oceania)}}>Oceania</li>
         </ul>
       </div>
     </div>
-    <div className={styles.containerHomeCountries}>
+    <div className={classeAdicionada ? styles.oculto : styles.containerHomeCountries}>
       {loading && <p>Carregando dados!!</p>}
       {allCountries && allCountries.map((country, index )=> {
         return <CountryItem key={index} index={index} country={country}/>

@@ -1,3 +1,8 @@
+.oculto{
+    display: none;
+}
+
+
 .containerHomeCountries{
     background-color: hsl(207, 26%, 17%);
     display: flex;

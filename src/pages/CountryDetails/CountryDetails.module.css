@@ -54,8 +54,15 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+}
+.subContainerDadosPais:first-child{
+    width:250px
 }
 
+.subContainerDadosPais:last-child{
+    width: 400px;
+}
 
 
 .ContainerDadosPais > p:first-child{
