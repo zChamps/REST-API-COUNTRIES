@@ -5,13 +5,15 @@ import { ContriesContext } from '../../Context/CountriesContext';
 import { useQuery } from "../../Hooks/useQuery";
 import CountryItem from '../../components/CountryItem';
 import styles from "./Search.module.css"
+import { useTheme } from "../../Context/ThemeContext";
+
 
 
 const Search = () => {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [indexFilteredCountries, setIndexFilteredCountries] = useState([])
   const [filteredCountriesAndIndex, setFilteredCountriesAndIndex] = useState([])
-
+  const { whiteTheme } = useTheme();
   
   //Obtendo o valor da query com o custom hook useQuery
   const query = useQuery();
@@ -49,7 +51,7 @@ filterCountries()
 
 
   return (
-    <div className={styles.containerHomeCountries}>
+    <div className={whiteTheme ? styles.containerHomeCountriesLight : styles.containerHomeCountriesDark}>
         {filteredCountriesAndIndex && filteredCountriesAndIndex.map((data) => {
           // console.log(data)
 

@@ -2,8 +2,15 @@ import { useContext } from 'react'
 import styles from "./CountryDetails.module.css"
 import { useParams, useNavigate } from 'react-router-dom'
 import { ContriesContext } from '../../Context/CountriesContext'
+import { useTheme } from "../../Context/ThemeContext";
+
+import { faArrowLeft as iconeSetaSolid } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const CountryDetails = () => {
+  const { whiteTheme } = useTheme();
+
 
   const { index } = useParams()
   const navigate = useNavigate()
@@ -11,57 +18,18 @@ const CountryDetails = () => {
   const { allCountries } = useContext(ContriesContext)
 
   const countryData = allCountries[index]
-  console.log(countryData)
-
-  //Bandeira: country.flags.png
-  //Nome: country.translations.por.common
-  //População: country.population
-  // Regiao: country.region
-  // Sub regiao: country.subregion
-  // Capital: country.capital[0]
-  // Top Level domain: country.tld[0]
-  // Moeda: country.currencies.map(moeda => { <p>moeda.name</p> })
-  // Linguagens: country.languages
-
-  //Paises fronteira: country.borders.map(pais => {<p>pais</p>})
-
-
-
-  countryData && console.log(countryData)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // BRASIL NÃO FUNCIONA:                 <p> <span className={styles.negrito}> Currencies:</span> {countryData.currencies[Object.keys(countryData.currencies)[1]].name} </p>
-
-
-
-
 
 
 
   return (
 
     <div>
-      {countryData && <div className={styles.ContainerGeral}>
+      {countryData && <div className={whiteTheme ? styles.ContainerGeralLight : styles.ContainerGeralDark}>
         <button onClick={e => {
           e.preventDefault()
           navigate("/")
-        }}>Back</button>
-        <div className={styles.SubcontainerGeralPais}>
+        }}><FontAwesomeIcon className={styles.icon} icon={iconeSetaSolid} style={ whiteTheme ? {color: 'black'} : {color: '#ffffff'}} size='lg' /> <p>Back</p> </button>
+        <div className={whiteTheme ? styles.SubcontainerGeralPaisLight : styles.SubcontainerGeralPaisDark}>
           <img src={countryData.flags.png} alt={countryData.flags.alt} />
           <div className={styles.ContainerDadosPais}>
             <p> <span className={styles.negrito}> {countryData.name.common}</span></p>
@@ -81,13 +49,13 @@ const CountryDetails = () => {
               </div>
             </div>
 
-            <div className={styles.teste}>
-              <div className={styles.teste}>
+            <div className={styles.borderCountries}>
+              <div className={styles.borderCountries}>
                 <p className={styles.negrito}>Border Countries:</p>
                 {countryData.borders ? (
                   <div className={styles.containerPaisesDivisa}>
                     {countryData.borders.map(pais => (
-                      <span className={styles.paisDivisa} key={pais}>{pais}</span>
+                      <span className={whiteTheme ? styles.paisDivisaLight : styles.paisDivisaDark} key={pais}>{pais}</span>
                     ))}
                   </div>
                 ) : (

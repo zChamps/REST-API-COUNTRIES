@@ -1,4 +1,4 @@
-.ContainerGeral{
+.ContainerGeralDark{
     background-color: hsl(207, 26%, 17%);
     margin: 0;
     padding: 0;
@@ -10,33 +10,114 @@
     gap: 70px;
 }
 
-.negrito{
-    font-weight: 700;
-}
-
-
-.ContainerGeral button{
+.ContainerGeralDark button{
     background-color: hsl(209, 23%, 22%);
     color: white;
-    padding: 10px 0px;
-    width: 110px;
+    padding: 15px 0px;
+    width: 150px;
     border: 0;
     border-radius: 3px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-.SubcontainerGeralPais{
-    /* background-color: rgb(243, 165, 165); */
+.SubcontainerGeralPaisDark{
     display: flex;
     gap: 150px;
     width: 100%;
     color: white;
 }
 
-.SubcontainerGeralPais img{
+.SubcontainerGeralPaisDark img{
     width: 500px;
     height: 400px;
 }
+
+.paisDivisaDark{
+    padding: 5px 30px;
+    background-color: hsl(209, 23%, 22%);
+}
+
+
+
+
+
+
+
+
+.ContainerGeralLight{
+    background-color: hsl(0, 0%, 100%);
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 64px);
+    padding: 65px 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 70px;
+}
+
+
+.ContainerGeralLight button{
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+    padding: 15px 0px;
+    width: 150px;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px #cacaca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.SubcontainerGeralPaisLight{
+    display: flex;
+    gap: 150px;
+    width: 100%;
+    color: black;
+}
+
+.SubcontainerGeralPaisLight img{
+    width: 500px;
+    height: 400px;
+}
+
+.paisDivisaLight{
+    padding: 5px 30px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 3px 3px 10px #cacaca;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.negrito{
+    font-weight: 700;
+}
+
 
 .ContainerDadosPais{
     margin-top: 40px;
@@ -70,10 +151,7 @@
     margin-bottom: 20px;
 }
 
-.paisDivisa{
-    padding: 5px 30px;
-    background-color: hsl(209, 23%, 22%);
-}
+
 
 .containerPaisesDivisa{
     display: flex;
@@ -84,6 +162,64 @@
     margin-left: 15px;
 }
 
-.teste{
+.borderCountries{
     display: flex;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 910px) {
+
+    .ContainerGeralDark{
+        background-color: hsl(207, 26%, 17%);
+        margin: 0;
+        padding: 0;
+        height: calc(100vh - 64px);
+        padding: 65px 100px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 70px;
+    }
+    
+    .ContainerGeralDark button{
+        background-color: hsl(209, 23%, 22%);
+        color: white;
+        padding: 15px 0px;
+        width: 150px;
+        border: 0;
+        border-radius: 3px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .SubcontainerGeralPaisDark{
+        display: flex;
+        gap: 150px;
+        width: 100%;
+        color: white;
+    }
+    
+    .SubcontainerGeralPaisDark img{
+        width: 500px;
+        height: 400px;
+    }
+    
+    .paisDivisaDark{
+        padding: 5px 30px;
+        background-color: hsl(209, 23%, 22%);
+    }
+
+
+
+
 }

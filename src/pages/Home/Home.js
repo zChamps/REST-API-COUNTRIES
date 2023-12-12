@@ -5,6 +5,14 @@ import { useState, useContext } from "react"
 import { useSearchParams, redirect, Navigate } from 'react-router-dom';
 import SearchForm from "../../components/SearchForm";
 import { ContriesContext } from "../../Context/CountriesContext";
+import { useTheme } from "../../Context/ThemeContext";
+
+import { faChevronDown as iconeSetaSolid } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+
+
 
 const Home = () => {
   const url = "https://restcountries.com/v3.1/independent?status=true"
@@ -17,11 +25,18 @@ const Home = () => {
   
   const [classeAdicionada, setClasseAdicionada] = useState(false);
 
+
+  const { whiteTheme} = useTheme();
+
+
+
+
+
   const handleFilterContanier = () => {
     setBarraPesquisa(!barraPesquisa)
   }
 
-
+  const [countriesByRegion, setCountriesByRegion] = useState([]);
 
   //Paises filtrados por continente
   const Africa = allCountries.filter(country => {
@@ -47,21 +62,17 @@ const Home = () => {
 
 
   const handleRegionClick = (region) => {
-    <div className={styles.containerHomeCountries}>
-    {region && region.map((country, index )=> {
-      return <CountryItem key={index} index={index} country={country}/>
-    })}</div>
-    
-    setClasseAdicionada(true)
-  }
+    setCountriesByRegion(region);
+    setClasseAdicionada(true);
+  };
   
 
   return (
     <>
-    <div className={styles.containerSearcAndFilter}>
+    <div className={whiteTheme ? styles.containerSearcAndFilterLight : styles.containerSearcAndFilterDark}>
       <SearchForm/>
-      <div className={styles.subcontainerFilter}>
-        <p onClick={handleFilterContanier}>Filter by Region</p>
+      <div className={whiteTheme ? styles.subcontainerFilterLight : styles.subcontainerFilterDark}>
+        <div onClick={handleFilterContanier}><p>Filter by Region</p><FontAwesomeIcon className={styles.icon} icon={iconeSetaSolid} style={ whiteTheme ? {color: 'black'} : {color: '#ffffff'}} size='lg' /></div>
         <ul  style={barraPesquisa === false ? {display: "none"} : {display: "flex"}}>
           <li onClick={() => {handleRegionClick(Africa)}}>Africa</li>
           <li onClick={() => {handleRegionClick(Americas)}}>America</li>
@@ -71,12 +82,16 @@ const Home = () => {
         </ul>
       </div>
     </div>
-    <div className={classeAdicionada ? styles.oculto : styles.containerHomeCountries}>
-      {loading && <p>Carregando dados!!</p>}
-      {allCountries && allCountries.map((country, index )=> {
-        return <CountryItem key={index} index={index} country={country}/>
-      })}
-    </div>
+    <div className={whiteTheme ? styles.containerHomeCountriesLight : styles.containerHomeCountriesDark}>
+        {loading && <p>Carregando dados!!</p>}
+        {countriesByRegion.length > 0
+          ? countriesByRegion.map((country, index) => (
+              <CountryItem key={index} index={index} country={country} />
+            ))
+          : allCountries.map((country, index) => (
+              <CountryItem key={index} index={index} country={country} />
+            ))}
+      </div>
     </>
   )
 }

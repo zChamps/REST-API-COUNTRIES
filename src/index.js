@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ContriesContextProvider } from './Context/CountriesContext';
+import { ThemeProvider } from './Context/ThemeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ContriesContextProvider>
-      <App />
-    </ContriesContextProvider>
+    <ThemeProvider>
+      <ContriesContextProvider>
+        <App />
+      </ContriesContextProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

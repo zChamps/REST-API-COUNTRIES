@@ -1,4 +1,4 @@
-.containerGeral{
+.containerGeralDark{
     width: 250px;
     height: 340px;
     background-color: hsl(209, 23%, 22%);
@@ -8,13 +8,40 @@
       
 }
 
-.containerGeral img{
+.containerGeralDark img{
     width: 250px;
     height: 140px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     cursor: pointer;
 }
+
+
+
+.containerGeralLight{
+    width: 250px;
+    height: 340px;
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+      
+}
+
+.containerGeralLight img{
+    width: 250px;
+    height: 140px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 
 .subContainer{
     padding: 25px 0 25px 25px;
