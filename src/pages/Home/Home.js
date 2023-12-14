@@ -85,8 +85,8 @@ const Home = () => {
     <div className={whiteTheme ? styles.containerHomeCountriesLight : styles.containerHomeCountriesDark}>
         {loading && <p>Carregando dados!!</p>}
         {countriesByRegion.length > 0
-          ? countriesByRegion.map((country, index) => (
-              <CountryItem key={index} index={index} country={country} />
+          ? countriesByRegion.map((country) => (
+              <CountryItem key={allCountries.indexOf(country)} index={allCountries.indexOf(country)} country={country} />
             ))
           : allCountries.map((country, index) => (
               <CountryItem key={index} index={index} country={country} />

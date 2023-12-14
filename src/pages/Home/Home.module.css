@@ -7,10 +7,11 @@
     background-color: hsl(207, 26%, 17%);
     display: flex;
     flex-wrap: wrap;
-    padding: 50px 100px;
+    padding: 50px 00px;
     gap: 75px;
     align-items: center;
     justify-content: center;
+    
 }
 
 .containerSearcAndFilterDark{
@@ -199,27 +200,47 @@
 
     .containerHomeCountriesDark{
 
-        padding: 60px 20px;
+        padding: 60px 0px;
         gap: 75px;
-
+        width: 92vw;
     }
 
     .containerSearcAndFilterDark{
         padding: 0 20px 0;
         padding-top: 50px;
-        
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: flex-start;
+        width: 81vw;
+    }
+
+    .subcontainerFilterDark{
+        padding: 0;
     }
 
     .containerHomeCountriesLight{
-        padding: 60px 20px;
+        padding: 60px 0px;
         gap: 75px;
+        width: 92vw;
+        
 
     }
     
     .containerSearcAndFilterLight{
         padding: 0 20px 0;
         padding-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: flex-start;
+        width: 81vw;
         
+        
+    }
+
+    .subcontainerFilterLight{
+        padding: 0;
     }
 
 }

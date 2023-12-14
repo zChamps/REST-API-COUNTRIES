@@ -59,21 +59,36 @@
     }
     
     .container_navDark h1{
-        font-size: 20px;
+        font-size: 17px;
 
     }
 
 
-
+    .container_navDark{
+        justify-content: space-around;
+        margin-right: 30px;
+    }
 
     .container_navLight{
         padding: 25px 20px;
     }
     
     .container_navLight h1{
-        font-size: 20px;
+        font-size: 17px;
+    }
+
+    .container_navLight{
+        justify-content: space-around;
+        margin-right: 30px;
     }
 
 
-
+    .span{
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+    }
 }
