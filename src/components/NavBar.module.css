@@ -65,8 +65,8 @@
 
 
     .container_navDark{
-        justify-content: space-around;
-        margin-right: 30px;
+        justify-content: space-between;
+        margin-right: 00px;
     }
 
     .container_navLight{
@@ -79,7 +79,7 @@
 
     .container_navLight{
         justify-content: space-around;
-        margin-right: 30px;
+        margin-right: 00px;
     }
 
 

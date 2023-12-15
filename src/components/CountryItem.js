@@ -19,7 +19,7 @@ const CountryItem = ({country, index}) => {
         <img src={country.flags.png} alt={country.flags.alt} /> {/* Bandeira do país */}
         <div className={styles.subContainer}>
             <h4>{country.name.common}</h4>  {/* Nome do país */}
-            <p><span>Population:</span> {country.population}</p>
+            <p><span>Population:</span> {country.population.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}</p>
             <p><span>Region:</span> {country.region}</p>
             <p><span>Capital:</span> {country.capital[0]}</p>
         </div>
